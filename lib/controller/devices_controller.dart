@@ -14,7 +14,8 @@ class DevicesController extends GetxController {
   final BuildContext context;
   DevicesController(this.context);
 
-  /// **P2P_CLUSTER** is a peer-to-peer strategy that supports an M-to-N, or cluster-shaped, connection topology.
+  /// **P2P_CLUSTER** is a peer-to-peer strategy that supports an M-to-N,
+  /// or cluster-shaped, connection topology.
   Strategy strategy = Strategy.P2P_CLUSTER;
 
   /// Here we do the Dependency Injection of various classes
@@ -23,7 +24,10 @@ class DevicesController extends GetxController {
   MessagesController messagesController = Get.put(MessagesController());
   DatesController datesController = Get.put(DatesController());
 
+  /// Nickname of the logged in user
   var username = ''.obs;
+
+  /// List of devices detected
   var devices = List<Device>().obs;
 
   /// The one who is requesting the info of a device
@@ -53,6 +57,7 @@ class DevicesController extends GetxController {
     super.onClose();
   }
 
+  /// Discover nearby devices
   void searchNearbyDevices() async {
     try {
       await nearby.startDiscovery(
@@ -79,15 +84,13 @@ class DevicesController extends GetxController {
     }
   }
 
-  /// Here Im about to try to incorporate advertise device function
+  /// Advertise own device to other devices nearby
   void advertiseDevice() async {
     try {
       await nearby.startAdvertising(
         username.value,
         strategy,
         onConnectionInitiated: (id, info) {
-          print('connection received');
-
           /// Remove first the device from the list in case it was already there
           /// This duplication could occur since we combine advertise and discover
           devices.removeWhere((device) => device.id == id);
@@ -129,7 +132,7 @@ class DevicesController extends GetxController {
     }
   }
 
-  /// Here Im about to try to incorporate advertise device function
+  /// Request to connect to other devices
   void requestDevice({
     BuildContext requestContext,
     String nickname,
@@ -164,6 +167,7 @@ class DevicesController extends GetxController {
     }
   }
 
+  /// Disconnect from another device
   void disconnectDevice({String id, void updateStateFunction()}) {
     try {
       messagesController.onDisconnect(id);
@@ -174,6 +178,7 @@ class DevicesController extends GetxController {
     }
   }
 
+  /// Reject request to connect to another device
   void rejectConnection({String id}) async {
     try {
       messagesController.onDisconnect(id);
@@ -183,6 +188,7 @@ class DevicesController extends GetxController {
     }
   }
 
+  /// Accept request to connect to another device
   void acceptConnection({String id, ConnectionInfo info}) async {
     try {
       messagesController.onConnect(id);
@@ -201,6 +207,7 @@ class DevicesController extends GetxController {
     }
   }
 
+  /// Send message to another device
   Future<bool> sendMessage(
       {String toId,
       String toUsername,
