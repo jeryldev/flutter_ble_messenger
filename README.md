@@ -1,8 +1,9 @@
-# flutter_ble_messenger
+# Chable!
 
-This is a BLE messenger application built using Flutter. I created this BLE messenger app to demonstrate how we can utilize BLE in mobile phones to create a Mesh-Network.
-This is my prototype for Assignment 1 in CMSC 205: Data Communications and Networking at UPOU.
-Flutter is an open-source UI software development kit created by Google. It is used to develop applications for Android, iOS, Linux, Mac, Windows, Google Fuchsia, and the web from a single codebase.
+This is Chable! - an android-based chat application prototype which I built using Flutter and Nearby Connections API plugin.
+Unlike most chat applications, Chable! utilizes Bluetooth, Wi-Fi, and Location Services in mobile phones to create a fully-offline peer-to-peer network.
+This app allows users to easily discover, connect to, and exchange data with nearby devices in real-time, regardless of network connectivity.
+I created this app as part of the requirements in CMSC 205: Data Communications and Networking class at the University of the Philippines Open University (UPOU).
 
 ## Getting Started in Flutter
 
