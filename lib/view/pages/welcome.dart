@@ -179,7 +179,7 @@ class _WelcomeState extends State<Welcome> with TickerProviderStateMixin {
                     Fade(
                       1.3,
                       Text(
-                        'Chable! is and android-based chat application prototype which I built using Flutter and Nearby Connections API plugin.\nUnlike most chat applications, Chable! utilizes Bluetooth, Wi-Fi, and Location Services in mobile phones to create a fully-offline peer-to-peer network.\nThis app allows users to easily discover, connect to, and exchange data with nearby devices in real-time, regardless of network connectivity.\nI created this app as part of the requirements in CMSC 205: Data Communications and Networking class at the University of the Philippines Open University (UPOU).',
+                        'Chable! is an android-based chat application prototype which I built using Flutter and Nearby Connections API plugin.\nUnlike most chat applications, Chable! utilizes Bluetooth, Wi-Fi, and Location Services in mobile phones to create a fully-offline peer-to-peer network.\nThis app allows users to easily discover, connect to, and exchange data with nearby devices in real-time, regardless of network connectivity.\nI created this app as part of the requirements in CMSC 205: Data Communications and Networking class at the University of the Philippines Open University (UPOU).',
                         style: TextStyle(
                           color: Colors.white.withOpacity(0.7),
                           height: 1.4,
